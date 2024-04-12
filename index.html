@@ -3,8 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/icon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/icon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./img/icon/site.webmanifest" />
+    <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-blue-950"></body>
+  <body class="bg-gray-200 text-gray-900">
+    <h1 class="text-6xl text-center font-mono font-medium">Etch-a-Sketch</h1>
+    <div class="flex flex-wrap gap-8">
+      <form
+        action=""
+        class="p-4 mx-auto mt-4 text-xl font-medium space-y-4 w-80 shadow-lg rounded-lg bg-gray-300 opacity-80"
+      >
+        <div class="flex items-center justify-between align-baseline">
+          <label for="gridSize" class="whitespace-nowrap">Grid Size: </label>
+          <div class="flex flex-col gap-2 items-center py-2">
+            <input
+              class="bg-transparent h-[3px] w-36 cursor-pointer appearance-none border-transparent bg-gray-100 rounded-sm"
+              type="range"
+              name="gridSize"
+              id="gridSize"
+              max="100"
+              min="2"
+              value="16"
+            />
+            <output id="value" class="italic text-base"></output>
+          </div>
+        </div>
+
+        <div class="flex justify-between">
+          <label for="colorOption">Pen Color:</label>
+          <select
+            class="bg-gray-200 rounded-sm outline-none border-none"
+            name="colorOption"
+            id="colorOption"
+          >
+            <option value="randomColor">Random Color</option>
+            <option value="singleColor">Pick A Color</option>
+          </select>
+        </div>
+
+        <div id="colorPickerWrapper" class="hidden">
+          <label for="selectedColor">Selected Color:</label>
+          <input type="color" name="selectedColor" id="selectedColor" />
+        </div>
+
+        <div class="flex flex-nowrap justify-around text-2xl">
+          <div>
+            <input
+              type="radio"
+              id="normalMode"
+              name="penMode"
+              value="normal"
+              checked
+            />
+            <label for="normalMode">Draw</label>
+          </div>
+          <div>
+            <input type="radio" id="eraserMode" name="penMode" value="eraser" />
+            <label for="eraserMode">Erase</label>
+          </div>
+        </div>
+        <hr class="w-full h-[2px] bg-gray-50 rounded-full" />
+        <div class="flex justify-evenly text-gray-50 gap-4 flex-nowrap">
+          <button id="clear" class="bg-[#fd7e14] rounded-lg py-1 px-3">
+            Clear
+          </button>
+          <button id="submit" class="bg-[#2E8CFB] rounded-lg py-1 px-3">
+            Submit
+          </button>
+        </div>
+      </form>
+
+      <div
+        id="container"
+        class="flex flex-wrap h-[500px] my-3 shadow-lg hover:shadow-xl bg-white opacity-70 border-2 border-sky-100 mx-auto w-11/12 max-w-screen-sm"
+      ></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
